@@ -8,24 +8,10 @@ class App extends Component {
   }
 
   componentDidMount(){
-    setTimeout(()=>{
-      this.setState({
-        movies : [
-          {
-            title : "신과함께",
-            poster : "http://newsimg.sedaily.com/2017/11/22/1ONOHF5TDF_2.jpg"
-          },
-          {
-            title : "너의결혼식",
-            poster : "http://img.khan.co.kr/news/2018/08/21/l_2018082101002297200189602.jpg"
-          },
-          {
-            title : "안시성",
-            poster : "http://thumbnail.egloos.net/600x0/http://pds27.egloos.com/pds/201808/25/74/d0014374_5b8118bd62f3c.jpg"
-          },
-        ]
-      })
-    }, 1000)
+   fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+   .then(response => response.json())
+   .then(json => console.log(json))
+   .catch(err => console.log(err))
   }
 
   _renderMovies = () => {
