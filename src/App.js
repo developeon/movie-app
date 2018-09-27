@@ -32,7 +32,6 @@ class App extends Component {
     const movies = this.state.movies.map((movie, index) => {
       return <Movie title={movie.title} poster={movie.poster} key={index}/>
     })
-    console.log(movies);
     return movies
   }
 
